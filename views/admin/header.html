@@ -14,7 +14,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="res/admin/plugins/fontawesome-free/css/all.min.css">
   <!-- pace-progress -->
-  <link rel="stylesheet" href="res/admin/plugins/pace-progress/themes/black/pace-theme-flat-top.css">
+  <!-- <link rel="stylesheet" href="res/admin/plugins/pace-progress/themes/black/pace-theme-flat-top.css"> -->
+
+  <link rel="stylesheet" href="res/admin/dist/css/flash.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="res/admin/dist/css/adminlte.min.css">
 </head>
@@ -234,7 +236,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/admin/users" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Simple Link
