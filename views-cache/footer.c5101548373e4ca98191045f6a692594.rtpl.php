@@ -26,6 +26,8 @@
 <script src="res/admin/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="res/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- pace-progress -->
+<script src="res/admin/plugins/pace-progress/pace.min.js"></script>
 <!-- AdminLTE App -->
 <script src="res/admin/dist/js/adminlte.min.js"></script>
 </body>
