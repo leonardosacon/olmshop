@@ -57,29 +57,53 @@ $app->get('/admin/logout', function(){
 	exit;
 });
 
-$app->get('admin/users', function(){
+/* USERS - Get Post Delete*/
+$app->get('/admin/users', function(){
 	User::verifyLogin();
-	
-	$page = new PageAdmin();
-	$page->setTpl("users");
+
+	$pageadmin = new PageAdmin();
+	$pageadmin->setTpl("users");
 });
 
-$app->get('admin/users/create', function(){
+$app->get('/admin/users/create', function(){
 	User::verifyLogin();
 	
-	$page = new PageAdmin();
-	$page->setTpl("users-create");
+	$pageadmin = new PageAdmin();
+
+	$pageadmin->setTpl("users-create");
 });
 
-$app->get('admin/users/:iduser', function($iduser){
+$app->get('/admin/users/:iduser', function($iduser){
 	User::verifyLogin();
 	
-	$page = new PageAdmin();
-	$page->setTpl("users-update");
+	$pageadmin = new PageAdmin();
+	$pageadmin->setTpl("users-update");
 });
 
 $app->post("/admin/users/create", function(){
 	User::verifyLogin();
+
+	$user = new User();
+
+ 	$_POST["inadmin"] = (isset($_POST["inadmin"])) ? 1 : 0;
+
+	if($_POST['despassword'] != $_POST['repeatdespassword']){
+		throw new Exception("As senhas não correspondem", 1);
+		exit;
+	}
+
+ 	$_POST['despassword'] = password_hash($_POST["despassword"], PASSWORD_DEFAULT, [
+
+ 		"cost"=>12
+
+ 	]);
+
+ 	$user->setData($_POST);
+
+	$user->save();
+
+	header("Location: /admin/users");
+ 	exit;
 });
 
 $app->post("/admin/users/:iduser", function($iduser){
@@ -89,6 +113,7 @@ $app->post("/admin/users/:iduser", function($iduser){
 $app->delete("/admin/users/:iduser", function($iduser){
 	User::verifyLogin();
 });
+/* USERS final */
 
 $app->run();
 
